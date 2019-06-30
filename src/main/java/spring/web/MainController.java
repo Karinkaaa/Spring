@@ -2,6 +2,7 @@ package spring.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -12,9 +13,9 @@ public class MainController {
         System.out.println("Controller create");
     }
 
-    @RequestMapping("get-some-data")
+    @RequestMapping(value= "get-some-data", method = RequestMethod.POST)
     @ResponseBody
-    public String[] getSomeData() {
+    public String[] getSomeData(int param1, double param2, String param3) {
 
         System.out.println("Controller method invoked.");
         return new String[]{"111", "222", "333"};
